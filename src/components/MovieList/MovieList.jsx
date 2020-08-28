@@ -11,6 +11,7 @@ class MovieList extends Component {
     showDetails = (id) => {
             console.log(id)
             this.props.dispatch({type: 'GET_DETAILS', payload: id})
+            this.props.history.push('/details')
     }
 
     render() {
