@@ -33,7 +33,7 @@ Genres can be applied to many different movies. Movies can have multiple genres.
 
 > NOTE: Start by taking inventory of the existing code. Part of the work for setting up sagas has been done for you.
 
-### Home / List Page
+### Home / List Page - done
 
 This should display all of the movies in the movie database. When a movie poster is clicked, a user should be brought to the `/details` view.
 
