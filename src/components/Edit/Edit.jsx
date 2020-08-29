@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { TextField, Button, Card } from '@material-ui/core';
+import './Edit.css'
 
 class Edit extends Component {
 
@@ -29,17 +30,23 @@ class Edit extends Component {
         console.log(this.state)
 
         return (
-            <Card>
-                <p>Edit</p>
+            <div className='container'>
+            <Card className='edit'>
+                <h2>Edit Movie</h2>
                 <form onSubmit={this.submitEditedMovie}>
+                    <div>
                     <TextField variant="outlined" label='Title' defaultValue={this.props.reduxState.details[0].title}
                         required onChange={(event) => this.handleChange(event, 'title')} />
+                        </div>
+                        <div>
                     <TextField variant="outlined" label='Description' required multiline style={{ width: 500 }}
                         defaultValue={this.props.reduxState.details[0].description}
                         onChange={(event) => this.handleChange(event, 'description')} />
+                        </div>
                     <Button variant='contained' type='submit'>Save</Button>
                 </form>
             </Card>
+            </div>
         )
     }
 };
