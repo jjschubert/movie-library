@@ -30,7 +30,7 @@ class Details extends Component {
         <ul>
             {this.props.reduxState.details.map((item) => {
                 return (
-                    <li>{item.name}</li>
+                    <li key={item.name}>{item.name}</li>
                 )
             })}
         </ul>
@@ -38,6 +38,7 @@ class Details extends Component {
         <p className='categories'>{this.props.reduxState.details[0].description}</p>
         
               <Button variant='contained' onClick={() => this.props.history.push('/')}>Back</Button>
+              <Button variant='contained' onClick={() => this.props.history.push('/edit')}>Edit</Button>
                 </Card>}
             </div>
 
