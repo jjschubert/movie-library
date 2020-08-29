@@ -18,9 +18,22 @@ let id = 0;
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMovies)
     yield takeEvery('GET_DETAILS', fetchDetails)
+    yield takeEvery('ADD_MOVIE', postMovie)
 }
 
 //saga generator functions
+function* postMovie(action) {
+    try {
+        console.log(action.payload)
+        yield axios.post('/api/movie', action.payload);
+        yield put({type: 'FETCH_MOVIES'})
+    } catch(error) {
+        console.log('error in postMovie', error)
+    }
+}
+
+
+
 function* fetchDetails() {
     try {
         let response = yield axios.get(`/api/movie/${id}`)
