@@ -1,6 +1,3 @@
-html {
-   
-}
 
 .item {
     width: 25%;
@@ -24,5 +21,6 @@ html {
 
 .title-div {
    text-align: center;
+   margin: .5em;
 }
 

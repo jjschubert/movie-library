@@ -2,16 +2,21 @@
   text-align: center;
 }
 
+html {
+  background-color: #edf6f9;
+}
 
 .App-header {
-  text-align: center;
-  height: 160px;
+  text-align: left;
+  height: 5em;
   padding: 1em;
   color: white;
 }
 
 .App-title {
   font-size: 1.5em;
+  margin-left: 3em;
+  float: left;
 }
 
 .App-intro {
@@ -31,8 +36,8 @@
   /* background-color: #333; */
 }
 .nav li {
-  margin-top: 1.5em;
-  float: left;
+  margin-top: .5em;
+  float: right;
   margin-bottom: .25em;
 }
 .nav li a {
@@ -45,5 +50,5 @@
 }
 /* Change the link color to #111 (black) on hover */
 .nav li a:hover {
-  background-color: #111;
+  background-color: #83c5be;
 }

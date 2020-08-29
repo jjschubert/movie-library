@@ -6,15 +6,17 @@ import Details from '../Details/Details.jsx'
 import AddMovies from '../AddMovies/AddMovies.jsx';
 import AppBar from '@material-ui/core/AppBar';
 import Edit from '../Edit/Edit.jsx';
+import 'fontsource-roboto';
+import Typography from '@material-ui/core/Typography';
 
 class App extends Component {
   // Renders the entire app on the DOM
   render() {
     return (
       <Router>
-        <AppBar position="static" className="App-header" style={{ background: '#658e9c' }}>
+        <AppBar position="static" className="App-header" style={{ background: '#006d77' }}>
           <header >
-            <h1 className="App-title">Movies!</h1>
+            <Typography variant="h3" className="App-title" style={{ color: 'white' }}>Movie Library</Typography>
             <ul className='nav'>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/add">Add a Movie</Link></li>

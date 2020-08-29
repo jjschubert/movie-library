@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { TextField, Button, Card } from '@material-ui/core';
+import { TextField, Button, Card, Typography } from '@material-ui/core';
 import './Edit.css';
 import axios from 'axios';
 
@@ -56,10 +56,10 @@ class Edit extends Component {
         //card saved in variable for conditional render
         const detailCard = this.state.editMovie.title ? ( 
             <Card className='edit'>
-                        <h2>Edit Movie</h2>
+                        <Typography variant='h4'>Edit Movie</Typography>
                         <form onSubmit={this.submitEditedMovie}>
-                            <div>
-                                <TextField variant="outlined" label='Title' defaultValue={this.state.editMovie.title}
+                            <div className='formDiv'>
+                                <TextField variant="outlined" label='Title' defaultValue={this.state.editMovie.title} 
                                     required onChange={(event) => this.handleChange(event, 'title')} />
                             </div>
                             <div>
@@ -67,8 +67,8 @@ class Edit extends Component {
                                     defaultValue={this.state.editMovie.description}
                                     onChange={(event) => this.handleChange(event, 'description')} />
                             </div>
-                            <Button variant='contained' type='submit'>Save</Button>
-                            <Button variant='contained' onClick={() => this.props.history.push('/')}>Cancel</Button>
+                            <Button variant='contained' style={{ background: '#ffddd2' }} type='submit'>Save</Button>
+                            <Button variant='contained' style={{ background: '#ffddd2' }} onClick={() => this.props.history.push('/')}>Cancel</Button>
                         </form>
 
                     </Card>)

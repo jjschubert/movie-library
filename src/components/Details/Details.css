@@ -15,4 +15,11 @@
     text-align: left;
 }
 
+img {
+    margin-top: .5em;
+}
+
+.editLink {
+    text-decoration: none
+}
 

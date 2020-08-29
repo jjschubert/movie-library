@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Details.css';
-import {Card, Button} from '@material-ui/core/';
+import {Card, Button, Typography} from '@material-ui/core/';
 import {  Link } from 'react-router-dom';
 
 class Details extends Component {
@@ -23,24 +23,24 @@ class Details extends Component {
             {/* conditional render once redux is ready */}
         {this.props.reduxState.details[0] && 
         <Card className='details'>
-            <h2>{this.props.reduxState.details[0].title}</h2>
+            <Typography variant='h4'>{this.props.reduxState.details[0].title}</Typography>
             <img src={this.props.reduxState.details[0].poster} alt={this.props.reduxState.details[0].title} />
         
         <div className='categories'>
-        <h4 >Categories:</h4>
+            <Typography variant='h5'>Categories:</Typography>
         <ul>
             {this.props.reduxState.details.map((item) => {
                 return (
-                    <li key={item.name}>{item.name}</li>
+                    <Typography variant='h6'><li key={item.name}>{item.name}</li></Typography>
+                    
                 )
             })}
         </ul>
         </div>
-        <p className='categories'>{this.props.reduxState.details[0].description}</p>
-        
-              <Button variant='contained' onClick={() => this.props.history.push('/')}>Back</Button>
-              <Link to={`/edit/${id}`}>
-              <Button variant='contained'>Edit</Button>
+        <Typography variant='body1' className='categories'>{this.props.reduxState.details[0].description}</Typography>  
+              <Button variant='contained' style={{ background: '#ffddd2' }} onClick={() => this.props.history.push('/')}>Back</Button>
+              <Link className='editLink' to={`/edit/${id}`}>
+              <Button variant='contained' style={{ background: '#ffddd2' }}>Edit</Button>
               </Link>
                 </Card>}
             </div>
