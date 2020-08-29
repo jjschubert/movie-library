@@ -5,6 +5,7 @@ html {
 .item {
     width: 25%;
     margin: 1em;
+    padding: 1em;
 }
 
 .container {
@@ -15,7 +16,7 @@ html {
 }
 
 .poster {
-    margin-top: 1em;
+    margin-top: .5em;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -24,3 +25,4 @@ html {
 .title-div {
    text-align: center;
 }
+
