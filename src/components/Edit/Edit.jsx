@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { TextField, FormControl, FormHelperText, Button, Card } from '@material-ui/core';
+import { TextField, Button, Card } from '@material-ui/core';
 
 class Edit extends Component {
 
@@ -12,7 +12,8 @@ class Edit extends Component {
     submitEditedMovie = (event) => {
         event.preventDefault();
         console.log(this.state)
-        // this.props.dispatch({ type: 'ADD_MOVIE', payload: this.state })
+        this.props.dispatch({ type: 'SUBMIT_EDITED_MOVIE', payload: this.state })
+        this.props.history.push('/');
     }
 
     handleChange = (event, propertyName) => {
@@ -22,13 +23,6 @@ class Edit extends Component {
             id: this.props.reduxState.details[0].id
         })
     }
-    //     details reducer 
-    //     0:
-    // description: "Avatar (marketed as James Cameron's Avatar) is a 2009 American epic science fiction film directed, written, produced, and co-edited by James Cameron, and stars Sam Worthington, Zoe Saldana, Stephen Lang, Michelle Rodriguez, and Sigourney Weaver. The film is set in the mid-22nd century, when humans are colonizing Pandora, a lush habitable moon of a gas giant in the Alpha Centauri star system, in order to mine the mineral unobtanium, a room-temperature superconductor. The expansion of the mining colony threatens the continued existence of a local tribe of Na'vi – a humanoid species indigenous to Pandora. The film's title refers to a genetically engineered Na'vi body operated from the brain of a remotely located human that is used to interact with the natives of Pandora."
-    // id: 1
-    // name: "Fantasy"
-    // poster: "images/avatar.jpeg"
-    // title: "Avatar"
 
     render() {
 
@@ -43,7 +37,7 @@ class Edit extends Component {
                     <TextField variant="outlined" label='Description' required multiline style={{ width: 500 }}
                         defaultValue={this.props.reduxState.details[0].description}
                         onChange={(event) => this.handleChange(event, 'description')} />
-                    <Button variant='contained' type='submit'>Submit</Button>
+                    <Button variant='contained' type='submit'>Save</Button>
                 </form>
             </Card>
         )
