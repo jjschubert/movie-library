@@ -12,7 +12,7 @@ class AddMovies extends Component {
     }
 
 
-    
+
 addMovie = (event) => {
     event.preventDefault();
     console.log(this.state)
@@ -58,7 +58,7 @@ addMovie = (event) => {
                     <option value="12">Space-Opera</option>
                     <option value="13">Superhero</option>
                 </select>
-                <button type='submit'>Submit Movie</button>
+                <button type='submit'>Save</button>
                 </form>
         
 
