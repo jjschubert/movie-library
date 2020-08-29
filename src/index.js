@@ -46,6 +46,7 @@ function* postMovie(action) {
 
 function* fetchDetails(action) {
     try {
+        console.log('fetchDetails, id: ', action.payload)
         let response = yield axios.get(`/api/movie/${action.payload}`)
         console.log(response.data)
         //save to redux
