@@ -13,7 +13,7 @@ import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios';
 
 
-let id = 0;
+
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMovies)
@@ -44,9 +44,9 @@ function* postMovie(action) {
 
 
 
-function* fetchDetails() {
+function* fetchDetails(action) {
     try {
-        let response = yield axios.get(`/api/movie/${id}`)
+        let response = yield axios.get(`/api/movie/${action.payload}`)
         console.log(response.data)
         //save to redux
         yield put({ type: 'SET_DETAILS', payload: response.data })
@@ -74,10 +74,10 @@ const sagaMiddleware = createSagaMiddleware();
 
 const details = (state = [], action) => {
     switch (action.type) {
-        case 'SEND_ID':
-            console.log(action.payload)
-            id = action.payload
-            return state;
+        // case 'SEND_ID':
+        //     console.log(action.payload)
+        //     id = action.payload
+        //     return state;
         case 'SET_DETAILS':
             console.log(action.payload)
             return action.payload

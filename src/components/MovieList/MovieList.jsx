@@ -2,18 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Card from '@material-ui/core/Card';
 import './MovieList.css'
-import { HashRouter as Router, Route, Link, Switch, useParams } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 
 class MovieList extends Component {
 
     componentDidMount() {
         this.props.dispatch({ type: 'FETCH_MOVIES' })
     }
-
-    // sendId = (id) => {
-    //         console.log(id)
-    //         this.props.dispatch({type: 'SEND_ID', payload: id})
-    // }
 
     render() {
         return (

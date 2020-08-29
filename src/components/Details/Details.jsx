@@ -14,7 +14,7 @@ class Details extends Component {
         console.log(this.props.match.params.movie_id)
         let id = this.props.match.params.movie_id
         this.setState({id: id})
-        this.props.dispatch({ type: 'GET_DETAILS' })
+        this.props.dispatch({ type: 'GET_DETAILS', payload: id })
     }
 
     render() {
