@@ -12,6 +12,8 @@ import createSagaMiddleware from 'redux-saga';
 import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios';
 
+
+let id = 0;
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMovies)
@@ -19,23 +21,24 @@ function* rootSaga() {
 }
 
 //saga generator functions
-function* fetchDetails(action) {
-    try{
-        let response = yield axios.get(`/api/movie/${action.payload}`)
+function* fetchDetails() {
+    try {
+        let response = yield axios.get(`/api/movie/${id}`)
         console.log(response.data)
-        yield put({type: 'SET_DETAILS', payload: response.data})
+        //save to redux
+        yield put({ type: 'SET_DETAILS', payload: response.data })
     } catch (error) {
-        console.log('error in fetch details', error); 
+        console.log('error in fetch details', error);
     }
 }
 
 
-function* fetchMovies(){
+function* fetchMovies() {
     try {
         //server req
         let response = yield axios.get('/api/movie')
         //save to redux
-        yield put({type: 'SET_MOVIES', payload: response.data})
+        yield put({ type: 'SET_MOVIES', payload: response.data })
     } catch (error) {
         console.log('error in fetch movies', error)
     }
@@ -46,8 +49,12 @@ function* fetchMovies(){
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
-const details = (state = {}, action) => {
+const details = (state = [], action) => {
     switch (action.type) {
+        case 'SEND_ID':
+            console.log(action.payload)
+            id = action.payload
+            return state;
         case 'SET_DETAILS':
             return action.payload
         default:
@@ -89,6 +96,6 @@ const storeInstance = createStore(
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
 
-ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, 
+ReactDOM.render(<Provider store={storeInstance}><App /></Provider>,
     document.getElementById('root'));
 registerServiceWorker();
