@@ -12,8 +12,7 @@ class AddMovies extends Component {
         description: ''
     }
 
-
-
+    //sends new movie to saga/reducers
     addMovie = (event) => {
         event.preventDefault();
         console.log(this.state)
@@ -26,6 +25,7 @@ class AddMovies extends Component {
         })
     }
 
+    //tracks form changes
     handleChange = (event, propertyName) => {
         this.setState({
             ...this.state,

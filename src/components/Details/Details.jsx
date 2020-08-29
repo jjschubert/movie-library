@@ -7,6 +7,7 @@ import {  Link } from 'react-router-dom';
 class Details extends Component {
 
 
+    //gets details based on params
     componentDidMount() {
         let id = this.props.match.params.movie_id
         this.props.dispatch({ type: 'GET_DETAILS', payload: id })
@@ -19,7 +20,7 @@ class Details extends Component {
         return (
             <div className='container'>
                 
-              
+            {/* conditional render once redux is ready */}
         {this.props.reduxState.details[0] && 
         <Card className='details'>
             <h2>{this.props.reduxState.details[0].title}</h2>

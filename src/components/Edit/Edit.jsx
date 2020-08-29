@@ -14,8 +14,8 @@ class Edit extends Component {
         }
     }
 
+    //new server request so we can use state to populate the form
     componentDidMount() {
-        // this.props.dispatch({ type: 'GET_DETAILS', payload: this.props.match.params.movie_id });
         axios.get(`/api/movie/${this.props.match.params.movie_id}`)
         .then(res => {
             console.log(res.data)
@@ -30,7 +30,7 @@ class Edit extends Component {
         })
     }
 
-
+//submits form, sends updated editMovie
     submitEditedMovie = (event) => {
         event.preventDefault();
         console.log(this.state)
@@ -38,6 +38,7 @@ class Edit extends Component {
         this.props.history.push('/');
     }
 
+    //handles form inputs
     handleChange = (event, propertyName) => {
         this.setState({
             editMovie: {
@@ -52,6 +53,7 @@ class Edit extends Component {
         console.log(this.state)
         console.log(id)
 
+        //card saved in variable for conditional render
         const detailCard = this.state.editMovie.title ? ( 
             <Card className='edit'>
                         <h2>Edit Movie</h2>
