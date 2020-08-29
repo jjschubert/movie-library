@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { InputLabel, MenuItem, Select, TextField, FormControl, FormHelperText, Button } from '@material-ui/core';
+import { InputLabel, MenuItem, Select, TextField, FormControl, FormHelperText, Button, Typography, Card } from '@material-ui/core';
 import './AddMovies.css';
 
 class AddMovies extends Component {
@@ -38,7 +38,8 @@ class AddMovies extends Component {
 
         return (
             <div className='addMovie'>
-                <p>Add a Movie</p>
+                <Card className='add'>
+                <Typography variant='h4'>Add Movie</Typography>
                 <div >
                     <form onSubmit={this.addMovie}>
                         <div className='form-div'>
@@ -75,8 +76,9 @@ class AddMovies extends Component {
                         </div>
                         </div>
                     </form>
-                    <Button variant="contained" onClick={() => this.props.history.push('/')}>Cancel</Button>
+                    <Button variant="contained" style={{ background: '#ffddd2' }} onClick={() => this.props.history.push('/')}>Cancel</Button>
                 </div>
+                </Card>
             </div>
 
         )

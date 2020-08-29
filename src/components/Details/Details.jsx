@@ -40,7 +40,7 @@ class Details extends Component {
         <Typography variant='body1' className='categories'>{this.props.reduxState.details[0].description}</Typography>  
               <Button variant='contained' style={{ background: '#ffddd2' }} onClick={() => this.props.history.push('/')}>Back</Button>
               <Link className='editLink' to={`/edit/${id}`}>
-              <Button variant='contained' style={{ background: '#ffddd2' }}>Edit</Button>
+              <Button variant='contained' color="primary">Edit</Button>
               </Link>
                 </Card>}
             </div>
