@@ -3,14 +3,17 @@ import { connect } from 'react-redux';
 import './Details.css';
 import {Card, Button} from '@material-ui/core/';
 
-
-
 class Details extends Component {
 
-    state = {}
+    state = {
+        id: null
+    }
 
 
     componentDidMount() {
+        console.log(this.props.match.params.movie_id)
+        let id = this.props.match.params.movie_id
+        this.setState({id: id})
         this.props.dispatch({ type: 'GET_DETAILS' })
     }
 

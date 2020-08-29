@@ -44,7 +44,9 @@ class Edit extends Component {
                         onChange={(event) => this.handleChange(event, 'description')} />
                         </div>
                     <Button variant='contained' type='submit'>Save</Button>
+                    <Button variant='contained' onClick={() => this.props.history.push('/')}>Cancel</Button>
                 </form>
+                
             </Card>
             </div>
         )
