@@ -56,6 +56,7 @@ const details = (state = [], action) => {
             id = action.payload
             return state;
         case 'SET_DETAILS':
+            console.log(action.payload)
             return action.payload
         default:
             return state;
