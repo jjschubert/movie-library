@@ -23,9 +23,9 @@ class App extends Component {
         </AppBar>
 
         <Route exact path="/" component={MovieList} />
-        <Route exact path="/details" component={Details} />
+        <Route exact path="/details/:movie_id" component={Details} />
         <Route path='/add' component={AddMovies} />
-        <Route path='/edit' component={Edit}/>
+        <Route path='/edit/:movie_id' component={Edit}/>
       </Router>
     );
   }

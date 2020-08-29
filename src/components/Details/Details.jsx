@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Details.css';
 import {Card, Button} from '@material-ui/core/';
-
-
+import {  Link } from 'react-router-dom';
 
 class Details extends Component {
 
-    state = {}
-
 
     componentDidMount() {
-        this.props.dispatch({ type: 'GET_DETAILS' })
+        let id = this.props.match.params.movie_id
+        this.props.dispatch({ type: 'GET_DETAILS', payload: id })
     }
 
     render() {
+        let id = this.props.match.params.movie_id;
+        console.log(id)
 
         return (
             <div className='container'>
@@ -38,7 +38,9 @@ class Details extends Component {
         <p className='categories'>{this.props.reduxState.details[0].description}</p>
         
               <Button variant='contained' onClick={() => this.props.history.push('/')}>Back</Button>
-              <Button variant='contained' onClick={() => this.props.history.push('/edit')}>Edit</Button>
+              <Link to={`/edit/${id}`}>
+              <Button variant='contained'>Edit</Button>
+              </Link>
                 </Card>}
             </div>
 
