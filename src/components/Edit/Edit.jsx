@@ -68,8 +68,8 @@ class Edit extends Component {
                                     onChange={(event) => this.handleChange(event, 'description')} />
                             </div>
                             
-                            <Button variant='contained' style={{ background: '#ffddd2' }} onClick={() => this.props.history.push('/')}>Cancel</Button>
-                            <Button variant='contained' color="primary" type='submit'>Save</Button>
+                            <Button variant='contained' onClick={() => this.props.history.push('/')}>Cancel</Button>
+                            <Button variant='contained' style={{ background: '#ffddd2' }} type='submit'>Save</Button>
                         </form>
 
                     </Card>)
