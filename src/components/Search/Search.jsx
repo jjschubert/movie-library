@@ -61,7 +61,7 @@ const searchResults = this.props.reduxState.searchResults[0] ? (
 
         return (
             <>
-            <div className='addMovie'>
+            <div className='searchMovie'>
                 <Card className='add'>
                 <Typography variant='h4'>Find a Movie</Typography>
                 <Typography>Search by title or genre</Typography>
