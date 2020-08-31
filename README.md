@@ -4,7 +4,7 @@
 
 _Duration: Weekend Project_
 
-This is a visual movie library that displays a movie poster, title, description, and a list of genres for movies in a database. Users could use this tool to track the movies they own or have seen. 
+This is a visual movie library that displays a movie poster, title, description, and a list of genres for movies in a database. Users can view details, add new movies to the database, and search all movies by title or genre. 
 
 ## ScreenShot
 
