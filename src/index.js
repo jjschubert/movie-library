@@ -20,9 +20,36 @@ function* rootSaga() {
     yield takeEvery('GET_DETAILS', fetchDetails)
     yield takeEvery('ADD_MOVIE', postMovie)
     yield takeEvery('SUBMIT_EDITED_MOVIE', postEdit)
+    yield takeEvery('GENRE_SEARCH', fetchSearchResults)
+    yield takeEvery('TITLE_SEARCH', fetchTitleResults)
 }
 
 //saga generator functions
+function* fetchTitleResults(action) {
+    try {
+        let response = yield axios.get(`/api/search/${action.payload}`);
+        console.log(response.data)
+        yield put({type: 'SET_SEARCH', payload: response.data})
+    } catch (error) {
+        console.log('error in fetchSearchResults', error)
+    }
+}
+
+
+
+function* fetchSearchResults(action) {
+    try {
+        let response = yield axios.get(`/api/search/${action.payload}`);
+        console.log(response)
+        yield put({type: 'SET_SEARCH', payload: response.data})
+    } catch (error) {
+        console.log('error in fetchSearchResults', error)
+    }
+}
+
+
+
+
 function* postEdit(action) {
     try {
         yield axios.put('/api/movie/', action.payload)
@@ -107,12 +134,22 @@ const genres = (state = [], action) => {
     }
 }
 
+//used to store search results
+const searchResults = (state=[], action) => {
+    if(action.type === 'SET_SEARCH') {
+        return action.payload
+    }
+
+    return state
+}
+
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
-        details
+        details,
+        searchResults
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),

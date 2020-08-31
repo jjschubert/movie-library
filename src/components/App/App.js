@@ -8,6 +8,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Edit from '../Edit/Edit.jsx';
 import 'fontsource-roboto';
 import Typography from '@material-ui/core/Typography';
+import Search from '../Search/Search.jsx'
 
 class App extends Component {
   // Renders the entire app on the DOM
@@ -28,6 +29,7 @@ class App extends Component {
         <Route exact path="/details/:movie_id" component={Details} />
         <Route path='/add' component={AddMovies} />
         <Route path='/edit/:movie_id' component={Edit}/>
+        <Route path='/search' component={Search}/>
       </Router>
     );
   }
