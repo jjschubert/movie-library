@@ -39,6 +39,8 @@ function* fetchTitleResults(action) {
 
 function* fetchSearchResults(action) {
     try {
+        let id = Number(action.payload)
+        console.log(id)
         let response = yield axios.get(`/api/search/${action.payload}`);
         console.log(response)
         yield put({type: 'SET_SEARCH', payload: response.data})
