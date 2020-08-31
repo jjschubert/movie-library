@@ -19,8 +19,9 @@ class App extends Component {
           <header >
             <Typography variant="h3" className="App-title" style={{ color: 'white' }}>Movie Library</Typography>
             <ul className='nav'>
-              <li><Link to="/">Home</Link></li>
               <li><Link to="/add">Add a Movie</Link></li>
+              <li><Link to="/search">Search Library</Link></li>
+              <li><Link to="/">Home</Link></li>
             </ul>
           </header>
         </AppBar>
